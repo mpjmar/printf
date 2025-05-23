@@ -6,7 +6,7 @@
 #    By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/23 17:29:26 by maria-j2          #+#    #+#              #
-#    Updated: 2025/05/23 17:35:30 by maria-j2         ###   ########.fr        #
+#    Updated: 2025/05/23 19:40:22 by maria-j2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,14 @@
 NAME = ft_printf 
 
 # Compiler and compilation flags
-CC = gcc -c
-CFLAGS = -Wall -Werror -Wextra
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -g
 
-# Create library and delete files
-AR = ar rcs 
+# Delete files
 RM = rm -f
 
 # Source files and object files
-SRC = ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_putunbr.c ft_putnbr.c
+SRC = ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_putunbr.c 
 
 OBJS = $(SRC:.c=.o)
 
@@ -39,7 +38,7 @@ all: $(NAME)
 
 # Rule to create the library
 $(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+	$(CC) $(OBJS) -o $(NAME)
 
 # Compile .c files to .o files
 %.o: %.c $(INCLUDE)

@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:00:21 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/05/23 17:28:08 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/05/23 20:25:21 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 int	ft_select_type(va_list vargs, char c)
 {
 	if (c == 'c')
-		return (ft_putchar((char)va_arg(vargs, int)));
+		return (ft_putchar(va_arg(vargs, int)));
 	if (c == 's')
-		return (ft_putstr((char)va_arg(vargs, int)));
+		return (ft_putstr(va_arg(vargs, char *)));
 /*	if (c == 'p')
 		return ft_putptr(va_arg(vargs, void*)); //hex pointer */
 	if (c == 'i' || c == 'd')
-		return (ft_putnbr((char)va_arg(vargs, int)));
+		return (ft_putnbr(va_arg(vargs, int)));
 	if (c == 'u')
-		return (ft_putunbr((char)va_arg(vargs, int)));
+		return (ft_putunbr(va_arg(vargs, unsigned int)));
 /*	if (c == 'x' || c == 'X')
 		return ft_puthex(); //base 16*/
 	if (c == '%')
@@ -34,7 +34,6 @@ int	ft_select_type(va_list vargs, char c)
 int	ft_printf(char const *format, ...)
 {
 	va_list	vargs;
-	int		next;
 	int		count;
 
 	count = 0;
@@ -59,8 +58,22 @@ int	ft_printf(char const *format, ...)
 
 int	main(void)
 {
-	ft_printf("Hola %s\n", "42");
-	printf("Hola %s\n", "42");
+	char var = '';
+	ft_printf("ft_print:%c\n", var);
+	printf("printf:%c\n", var);
+	
+	/* char *var = NULL;
+	ft_printf("ft_print:%s\n", var);
+	printf("printf:%s\n", var); */
+	
+	/* long n = 3222222;
+	//long number = 212222222222222;
+	printf("printf:		%li\n", n);
+	ft_printf("ft_printf: %i\n", n); */
+	
+	//printf("%x\n", n);
+
+	// PROBAR!! caractes NULL, "" vacios, 
 
 	return (0);
 }

@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build ft_printf",
+            "type": "shell",
+            "command": "make",
+			"args": ["-Wall", "-Wextra", "-Werror", "-g"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "make clean",
+            "group": "build"
+        }
+    ]
+}
