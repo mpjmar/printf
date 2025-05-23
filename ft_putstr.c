@@ -6,17 +6,18 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:44:25 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/05/22 16:38:28 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/05/23 16:56:07 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
 
-void	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
-	while (*s)
-	{
+	int	i;
+
+	i = 0;
+	while (s[i++])
 		write (1, s, 1);
-		s++;
-	}
+	return (i);
 }

@@ -6,51 +6,61 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:00:21 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/05/22 17:14:06 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/05/23 17:28:08 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
 
-int	ft_select_type (char c)
+int	ft_select_type(va_list vargs, char c)
 {
-	if (c = 'c') ft_putchar(); //character
-	else if (c = 's') ft_putstr(); //string
-	else if (c = 'p') ft_putptr(); //hex pointer
-	else if (c = 'd') ft_putnbr(); //base 10 decimal
-	else if (c = 'i') ft_putnbr(); //base 10 integer
-	else if (c = 'u') ft_putunbr(); //base 10 unsigned decimal
-	else if (c = 'x') ft_putlower_hex(); //base 16 lower hex number
-	else if (c = 'X') ft_putupper_hex(); //base 16 upper hex number
-	else if (c = '%') ft_putchar(); //percent symbol
+	if (c == 'c')
+		return (ft_putchar((char)va_arg(vargs, int)));
+	if (c == 's')
+		return (ft_putstr((char)va_arg(vargs, int)));
+/*	if (c == 'p')
+		return ft_putptr(va_arg(vargs, void*)); //hex pointer */
+	if (c == 'i' || c == 'd')
+		return (ft_putnbr((char)va_arg(vargs, int)));
+	if (c == 'u')
+		return (ft_putunbr((char)va_arg(vargs, int)));
+/*	if (c == 'x' || c == 'X')
+		return ft_puthex(); //base 16*/
+	if (c == '%')
+		return (ft_putchar('%'));
+	return (-1);
 }
-
 
 int	ft_printf(char const *format, ...)
 {
 	va_list	vargs;
 	int		next;
-	int		i;
 	int		count;
 
-	i = 0;
-	va_start(vargs, i);
-	while (format[i])
+	count = 0;
+	va_start(vargs, format);
+	while (*format)
 	{
-		next = va_arg(vargs, char);
-		if (format[i] == '%')
+		if (*format == '%')
 		{
-			i++;
-			ft_select_type(format[i]);
+			format++;
+			count = ft_select_type(vargs, *format);
 		}
 		else
 		{
-			ft_putchar(format[i]);
+			ft_putchar(*format);
 			count++;
 		}
-		i++;
+		format++;
 	}
 	va_end(vargs);
 	return (count);
 }
 
+int	main(void)
+{
+	ft_printf("Hola %s\n", "42");
+	printf("Hola %s\n", "42");
+
+	return (0);
+}

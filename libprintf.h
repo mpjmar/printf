@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:08:45 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/05/20 20:04:28 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/05/22 19:49:24 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 
 # include <stdio.h>
 # include <stdarg.h>
+# include <unistd.h>
 
+
+int	ft_putchar(char c);
+int	ft_putstr(char *s);
 
 
 #endif

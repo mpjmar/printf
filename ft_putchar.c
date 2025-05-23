@@ -6,11 +6,14 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:44:02 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/05/22 16:28:30 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/05/22 19:32:13 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
+{
 	write (1, &c, 1);
+	return (1);
+}
