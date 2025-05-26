@@ -6,7 +6,7 @@
 #    By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/23 17:29:26 by maria-j2          #+#    #+#              #
-#    Updated: 2025/05/23 19:40:22 by maria-j2         ###   ########.fr        #
+#    Updated: 2025/05/23 20:28:37 by maria-j2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ INCLUDE = libprintf.h
 #  commands
 all: $(NAME)
 
-# Rule to create the library
+# Rule to create the exec file
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME)
 

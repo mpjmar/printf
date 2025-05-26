@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 19:44:22 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/05/22 16:38:02 by maria-j2         ###   ########.fr       */
+/*   Created: 2025/05/19 19:44:25 by maria-j2          #+#    #+#             */
+/*   Updated: 2025/05/26 18:31:27 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libprintf.h"
 
-void	ft_putptr(string *s)
+int	ft_putstr_pf(char *s)
 {
-	
+	int	i;
+
+	if (!s)
+		return (ft_putstr_pf("(null)"));
+	i = 0;
+	while (*s)
+	{
+		write (1, s, 1);
+		s++;
+		i++;
+	}
+	return (i);
 }

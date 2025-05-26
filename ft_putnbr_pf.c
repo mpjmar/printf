@@ -6,13 +6,13 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:44:12 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/05/23 17:55:28 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/05/26 18:32:14 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
 
-static size_t	get_size(int n)
+static size_t	get_size_pf(int n)
 {
 	size_t	size;
 	long	num;
@@ -33,7 +33,7 @@ static size_t	get_size(int n)
 	return (size);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa_pf(int n)
 {
 	long	num;
 	char	*resul;
@@ -60,19 +60,19 @@ char	*ft_itoa(int n)
 	return (resul);
 }
 
-int	ft_putnbr(int n)
+int	ft_putnbr_pf(int n)
 {
 	char	*s;
 	size_t	i;
 
 	if (n == -2147483648)
-		return (ft_putstr("-2147483648"));
+		return (ft_putstr_pf("-2147483648"));
 	i = 0;
 	s = ft_itoa(n);
 	if (!s)
 		return (0);
 	while (s[i])
-		ft_putchar(s[i++]);
+		ft_putchar_pf(s[i++]);
 	free(s);
 	return (i);
 }

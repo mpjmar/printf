@@ -6,28 +6,28 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:00:21 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/05/23 20:25:21 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/05/26 18:35:22 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
 
-int	ft_select_type(va_list vargs, char c)
+static int	ft_select_type(va_list vargs, char c)
 {
 	if (c == 'c')
-		return (ft_putchar(va_arg(vargs, int)));
+		return (ft_putchar_pf(va_arg(vargs, int)));
 	if (c == 's')
-		return (ft_putstr(va_arg(vargs, char *)));
+		return (ft_putstr_pf(va_arg(vargs, char *)));
 /*	if (c == 'p')
 		return ft_putptr(va_arg(vargs, void*)); //hex pointer */
 	if (c == 'i' || c == 'd')
-		return (ft_putnbr(va_arg(vargs, int)));
+		return (ft_putnbr_pf(va_arg(vargs, int)));
 	if (c == 'u')
-		return (ft_putunbr(va_arg(vargs, unsigned int)));
+		return (ft_putunbr_pf(va_arg(vargs, unsigned int)));
 /*	if (c == 'x' || c == 'X')
 		return ft_puthex(); //base 16*/
 	if (c == '%')
-		return (ft_putchar('%'));
+		return (ft_putchar_pf('%'));
 	return (-1);
 }
 
@@ -47,7 +47,7 @@ int	ft_printf(char const *format, ...)
 		}
 		else
 		{
-			ft_putchar(*format);
+			ft_putchar_pf(*format);
 			count++;
 		}
 		format++;
@@ -56,7 +56,7 @@ int	ft_printf(char const *format, ...)
 	return (count);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	char var = '';
 	ft_printf("ft_print:%c\n", var);
@@ -76,4 +76,4 @@ int	main(void)
 	// PROBAR!! caractes NULL, "" vacios, 
 
 	return (0);
-}
+} */

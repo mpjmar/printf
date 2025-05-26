@@ -6,13 +6,13 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:44:32 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/05/23 17:23:10 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/05/26 18:29:58 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
 
-void	ft_puthex(unsigned int n)
+void	ft_puthex_pf(unsigned int n)
 {
 	0x0f
 }

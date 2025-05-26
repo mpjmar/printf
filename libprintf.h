@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:08:45 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/05/23 17:54:35 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/05/26 18:33:02 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 # include <unistd.h>
 
 
-int		ft_putchar(char c);
-int		ft_putnbr(int n);
-int		ft_putstr(char *s);
-int		ft_putunbr(unsigned int n);
-char	*ft_itoa(int n);
+int		ft_putchar_pf(char c);
+int		ft_putnbr_pf(int n);
+int		ft_putstr_pf(char *s);
+int		ft_putunbr_pf(unsigned int n);
+char	*ft_itoa_pf(int n);
 
 
 #endif
