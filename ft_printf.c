@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:00:21 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/05/26 18:37:21 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/05/28 19:55:02 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ static int	ft_select_type(va_list vargs, char c)
 	if (c == 's')
 		return (ft_putstr_pf(va_arg(vargs, char *)));
 /*	if (c == 'p')
-		return ft_putptr(va_arg(vargs, void*)); //hex pointer */
+		return ft_putptr_pf(va_arg(vargs, void*)); hex pointer */
 	if (c == 'i' || c == 'd')
 		return (ft_putnbr_pf(va_arg(vargs, int)));
 	if (c == 'u')
 		return (ft_putunbr_pf(va_arg(vargs, unsigned int)));
-/*	if (c == 'x' || c == 'X')
-		return ft_puthex(); //base 16*/
+	if (c == 'x' || c == 'X')
+		return (ft_puthex_pf(va_arg(vargs, unsigned int)));
 	if (c == '%')
 		return (ft_putchar_pf('%'));
 	return (-1);
@@ -43,7 +43,7 @@ int	ft_printf(char const *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			count = ft_select_type(vargs, *format);
+			count += ft_select_type(vargs, *format);
 		}
 		else
 		{
@@ -65,15 +65,15 @@ int	ft_printf(char const *format, ...)
 	/* char *var = NULL;
 	ft_printf("ft_print:%s\n", var);
 	printf("printf:%s\n", var); */
-	
+
 	/* long n = 3222222;
 	//long number = 212222222222222;
 	printf("printf:		%li\n", n);
 	ft_printf("ft_printf: %i\n", n); */
-	
+
 	//printf("%x\n", n);
 
 	// PROBAR!! caractes NULL, "" vacios, 
 
-	return (0);
-} */
+	//return (0);
+//} 
