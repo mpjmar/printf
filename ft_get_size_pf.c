@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex_pf.c                                     :+:      :+:    :+:   */
+/*   ft_get_size_pf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 19:44:32 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/05/28 19:36:58 by maria-j2         ###   ########.fr       */
+/*   Created: 2025/05/28 19:22:15 by maria-j2          #+#    #+#             */
+/*   Updated: 2025/05/28 19:26:36 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
 
-void	ft_puthex_pf(unsigned int n)
+size_t	ft_get_size_pf(unsigned int n)
 {
-	char	*resul;
 	size_t	size;
 
-	size = ft_get_size_pf(n);
-	resul = malloc((size + 1) * sizeof(char));
-	if (!resul)
-		return ;
-	resul[size] = '\0';
-	size--;
+	if (n > 0)
+		size = 0;
+	else
+	{
+		size = 1;
+		n *= -1;
+	}
 	while (n > 0)
 	{
-		resul[size--] = n % 16 + '0';
-		n /= 16;
+		n /= 10;
+		size++;
 	}
-	ft_putstr_pf(resul);
+	return (size);
 }

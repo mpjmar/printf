@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex_pf.c                                     :+:      :+:    :+:   */
+/*   ft_itoa_pf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 19:44:32 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/05/28 19:36:58 by maria-j2         ###   ########.fr       */
+/*   Created: 2025/05/28 18:15:18 by maria-j2          #+#    #+#             */
+/*   Updated: 2025/05/28 19:28:08 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
 
-void	ft_puthex_pf(unsigned int n)
+char	*ft_itoa_pf(int n)
 {
+	long	num;
 	char	*resul;
 	size_t	size;
 
+	num = n;
 	size = ft_get_size_pf(n);
+	if (n < 0)
+		num *= -1;
 	resul = malloc((size + 1) * sizeof(char));
 	if (!resul)
-		return ;
+		return (NULL);
 	resul[size] = '\0';
 	size--;
-	while (n > 0)
+	while (num > 0)
 	{
-		resul[size--] = n % 16 + '0';
-		n /= 16;
+		resul[size--] = num % 10 + '0';
+		num /= 10;
 	}
-	ft_putstr_pf(resul);
+	if (size == 0 && resul[1] == '\0')
+		resul[0] = '0';
+	else if (size == 0 && resul[1])
+		resul[0] = '-';
+	return (resul);
 }

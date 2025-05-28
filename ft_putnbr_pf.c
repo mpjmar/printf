@@ -1,64 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_pf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:44:12 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/05/26 18:32:14 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/05/28 18:16:41 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
-
-static size_t	get_size_pf(int n)
-{
-	size_t	size;
-	long	num;
-
-	num = n;
-	if (num > 0)
-		size = 0;
-	else
-	{
-		size = 1;
-		num *= -1;
-	}
-	while (num > 0)
-	{
-		num /= 10;
-		size++;
-	}
-	return (size);
-}
-
-char	*ft_itoa_pf(int n)
-{
-	long	num;
-	char	*resul;
-	size_t	size;
-
-	num = n;
-	size = get_size(n);
-	if (n < 0)
-		num *= -1;
-	resul = malloc((size + 1) * sizeof(char));
-	if (!resul)
-		return (NULL);
-	resul[size] = '\0';
-	size--;
-	while (num > 0)
-	{
-		resul[size--] = num % 10 + '0';
-		num /= 10;
-	}
-	if (size == 0 && resul[1] == '\0')
-		resul[0] = '0';
-	else if (size == 0 && resul[1])
-		resul[0] = '-';
-	return (resul);
-}
 
 int	ft_putnbr_pf(int n)
 {
@@ -68,7 +20,7 @@ int	ft_putnbr_pf(int n)
 	if (n == -2147483648)
 		return (ft_putstr_pf("-2147483648"));
 	i = 0;
-	s = ft_itoa(n);
+	s = ft_itoa_pf(n);
 	if (!s)
 		return (0);
 	while (s[i])
