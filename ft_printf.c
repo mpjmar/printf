@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:00:21 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/05/28 19:55:02 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/06/02 20:07:30 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,24 @@
 
 static int	ft_select_type(va_list vargs, char c)
 {
+	int	count;
+
+	count = 0;
 	if (c == 'c')
-		return (ft_putchar_pf(va_arg(vargs, int)));
+		count += ft_putchar_pf(va_arg(vargs, int));
 	if (c == 's')
-		return (ft_putstr_pf(va_arg(vargs, char *)));
-/*	if (c == 'p')
-		return ft_putptr_pf(va_arg(vargs, void*)); hex pointer */
+		count += ft_putstr_pf(va_arg(vargs, char *));
+	if (c == 'p')
+		count += ft_putptr_pf(va_arg(vargs, void *), 16, c);
 	if (c == 'i' || c == 'd')
-		return (ft_putnbr_pf(va_arg(vargs, int)));
+		count += ft_putnbr_pf(va_arg(vargs, int), 10, c);
 	if (c == 'u')
-		return (ft_putunbr_pf(va_arg(vargs, unsigned int)));
+		count += ft_putunbr_pf(va_arg(vargs, unsigned long), 10, c);
 	if (c == 'x' || c == 'X')
-		return (ft_puthex_pf(va_arg(vargs, unsigned int)));
+		count += ft_putunbr_pf(va_arg(vargs, unsigned long), 16, c);
 	if (c == '%')
-		return (ft_putchar_pf('%'));
-	return (-1);
+		count += ft_putchar_pf('%');
+	return (count);
 }
 
 int	ft_printf(char const *format, ...)
@@ -41,15 +44,9 @@ int	ft_printf(char const *format, ...)
 	while (*format)
 	{
 		if (*format == '%')
-		{
-			format++;
-			count += ft_select_type(vargs, *format);
-		}
+			count += ft_select_type(vargs, *format++);
 		else
-		{
-			ft_putchar_pf(*format);
-			count++;
-		}
+			count *= write(1, format, 1);
 		format++;
 	}
 	va_end(vargs);
