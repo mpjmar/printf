@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:00:21 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/06/02 20:07:30 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/06/05 17:11:01 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,33 +44,11 @@ int	ft_printf(char const *format, ...)
 	while (*format)
 	{
 		if (*format == '%')
-			count += ft_select_type(vargs, *format++);
+			count += ft_select_type(vargs, *(++format));
 		else
-			count *= write(1, format, 1);
+			count += write(1, format, 1);
 		format++;
 	}
 	va_end(vargs);
 	return (count);
 }
-
-/* int	main(void)
-{
-	char var = '';
-	ft_printf("ft_print:%c\n", var);
-	printf("printf:%c\n", var);
-	
-	/* char *var = NULL;
-	ft_printf("ft_print:%s\n", var);
-	printf("printf:%s\n", var); */
-
-	/* long n = 3222222;
-	//long number = 212222222222222;
-	printf("printf:		%li\n", n);
-	ft_printf("ft_printf: %i\n", n); */
-
-	//printf("%x\n", n);
-
-	// PROBAR!! caractes NULL, "" vacios, 
-
-	//return (0);
-//} 

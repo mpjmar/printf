@@ -6,7 +6,7 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:44:12 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/06/02 19:37:50 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/06/04 16:54:04 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_putnbr_pf(int n, int base, char c)
 		return (ft_putstr_pf("-2147483648"));
 	if (n < 0)
 	{
-		write (1, '-', 1);
+		write (1, "-", 1);
 		return (ft_putnbr_pf(-n, base, c) + 1);
 	}
 	else if (n < 10)
