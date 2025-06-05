@@ -6,11 +6,11 @@
 /*   By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 19:00:21 by maria-j2          #+#    #+#             */
-/*   Updated: 2025/06/05 17:11:01 by maria-j2         ###   ########.fr       */
+/*   Updated: 2025/06/05 19:06:49 by maria-j2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "ft_printf.h"
 
 static int	ft_select_type(va_list vargs, char c)
 {
@@ -26,9 +26,9 @@ static int	ft_select_type(va_list vargs, char c)
 	if (c == 'i' || c == 'd')
 		count += ft_putnbr_pf(va_arg(vargs, int), 10, c);
 	if (c == 'u')
-		count += ft_putunbr_pf(va_arg(vargs, unsigned long), 10, c);
+		count += ft_putunbr_pf(va_arg(vargs, unsigned), 10, c);
 	if (c == 'x' || c == 'X')
-		count += ft_putunbr_pf(va_arg(vargs, unsigned long), 16, c);
+		count += ft_putunbr_pf(va_arg(vargs, unsigned), 16, c);
 	if (c == '%')
 		count += ft_putchar_pf('%');
 	return (count);
