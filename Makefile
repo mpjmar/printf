@@ -6,7 +6,7 @@
 #    By: maria-j2 <maria-j2@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/23 17:29:26 by maria-j2          #+#    #+#              #
-#    Updated: 2025/06/05 17:34:10 by maria-j2         ###   ########.fr        #
+#    Updated: 2025/06/06 12:16:55 by maria-j2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ INCLUDE = ft_printf.h
 
 # Default rule that compiles everything
 # target : dependencies
-#  commands
+# commands
 all: $(NAME)
 
 # Rule to create the library
